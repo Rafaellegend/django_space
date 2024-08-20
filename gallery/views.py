@@ -1,15 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+
+from gallery.models import Fotografia
 
 def index(request):
-  dados = {
-  1: {"name": "Nebulosa de Carina",
-      "subtitle": "webbtelescope.org / NASA / James Webb"
-      },
-  2: {"name": "Galáxia NGC 1079",
-      "subtitle": "nasa.org / NASA / Hubble"
-      }
-}
-  return render(request,'gallery/index.html', {"cards": dados})
+  fotografias = Fotografia.objects.all()
+  return render(request,'gallery/index.html', {"cards": fotografias})
 
-def imagem(request):
-  return render(request, 'gallery/imagem.html')
+def imagem(request,foto_id):
+  fotografia = get_object_or_404(Fotografia, pk=foto_id)
+  return render(request, 'gallery/imagem.html',{"fotografia": fotografia})
