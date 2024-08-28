@@ -161,6 +161,8 @@ table {
 
 .card__imagem {
     width: 450px;
+    height: 290px;
+    object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
 
