@@ -29,9 +29,9 @@
                                         <img class="card__imagem" src="{{fotografia.foto.url}}" alt="foto">
                                     {% endif %}
                                 </a>
-                                <span class="card__tag">{{fotografia.category}}</span>
+                                <span class="card__tag">{{fotografia.category|title}}</span>
                                 <div class="card__info">
-                                    <p class="card__titulo">{{ fotografia.name }}</p>
+                                    <p class="card__titulo">{{ fotografia.name}}</p>
                                     <div class="card__texto">
                                         <p class="card__descricao">{{fotografia.subtitle}}</p>
                                         <span>
