@@ -57,7 +57,7 @@ class CadastroForms(forms.Form):
       }
     )
   )
-  senha2=forms.CharField(
+  senha_2=forms.CharField(
     label='Digite sua senha novamente',
     required=True,
     max_length=70,
