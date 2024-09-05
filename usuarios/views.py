@@ -23,7 +23,7 @@ def login(request):
     )
     if usuario is not None:
       auth.login(request, usuario)
-      messages.success(request= f"{nome} logado com sucesso!")
+      messages.success(request, f"{nome} logado com sucesso!")
       return redirect('index')
     else:
       messages.error(request, "Erro ao efetuar login")
