@@ -68,6 +68,7 @@ class CadastroForms(forms.Form):
       }
     )
   )
+  
 def clean_nome_cadastro(self):
   nome=self.cleaned_data_get("nome_cadastro")
   if nome:
@@ -77,3 +78,12 @@ def clean_nome_cadastro(self):
     else:
       return nome
   
+def clean_senha_2(self):
+  senha_1 = self.cleaned_data_get("senhas_1")
+  senha_2 = self.cleaned_data_get("senhas_2")
+  
+  if senha_1 and senha_2:
+    if senha_1 != senha_2:
+      raise forms.ValidationError("Senhas não são iguais")
+    else:
+      return senha_2
