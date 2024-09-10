@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
-from gallery.models import Fotografia
-
 from django.contrib import messages
+
+from apps.gallery.models import Fotografia
 
 def index(request):
   if not request.user.is_authenticated:
