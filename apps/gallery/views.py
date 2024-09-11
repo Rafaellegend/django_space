@@ -5,27 +5,36 @@ from django.contrib import messages
 from apps.gallery.models import Fotografia
 
 def index(request):
-  if not request.user.is_authenticated:
-    messages.error(request, "Usuário não logado")
-    return redirect('login')
+    if not request.user.is_authenticated:
+        messages.error(request, "Usuário não logado")
+        return redirect('login')
   
-  fotografias = Fotografia.objects.order_by("-data_fotografia").filter(public=True)
-  return render(request,'gallery/index.html', {"cards": fotografias})
+    fotografias = Fotografia.objects.order_by("-data_fotografia").filter(public=True)
+    return render(request,'gallery/index.html', {"cards": fotografias})
 
 def imagem(request,foto_id):
-  fotografia = get_object_or_404(Fotografia, pk=foto_id)
-  return render(request, 'gallery/imagem.html',{"fotografia": fotografia})
+    fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    return render(request, 'gallery/imagem.html',{"fotografia": fotografia})
 
 def buscar(request):
-  if not request.user.is_authenticated:
-    return redirect('login')
+    if not request.user.is_authenticated:
+        return redirect('login')
   
-  fotografias = Fotografia.objects.order_by("-data_fotografia").filter(public=True)
-  if "buscar" in request.GET:
-    messages.error(request, "Usuário não logado")
-    nome_a_buscar = request.GET['buscar']
+    fotografias = Fotografia.objects.order_by("-data_fotografia").filter(public=True)
+    if "buscar" in request.GET:
+        messages.error(request, "Usuário não logado")
+        nome_a_buscar = request.GET['buscar']
     
     if nome_a_buscar:
       fotografias = fotografias.filter(name__icontains=nome_a_buscar)
 
-  return render(request, 'gallery/buscar.html',{"cards":fotografias})
+    return render(request, 'gallery/buscar.html',{"cards":fotografias})
+
+def nova_imagem(request):
+    return render(request, 'gallery/nova_imagem.html')
+
+def editar_imagem(request):
+    pass
+
+def deletar_imagem(request):
+    pass
