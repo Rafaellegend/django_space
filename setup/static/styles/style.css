@@ -383,6 +383,7 @@ table {
     max-width: 1440px;
     padding: 1.5rem;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 .populares {
@@ -443,7 +444,7 @@ table {
 .rodape {
     background-color: #04244f;
     position: sticky;
-    bottom: 0px;
+    bottom: 0%;
     width: 100%;
     padding: 1.5rem 3rem;
     box-sizing: border-box;

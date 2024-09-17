@@ -15,7 +15,7 @@ class Fotografia(models.Model):
     category = models.CharField(max_length=100, choices=CATEGORY_OPTIONS, default='')
     description = models.TextField(null=False,blank=False)
     foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=True)
-    public= models.BooleanField(default=False)
+    public= models.BooleanField(default=True)
     data_fotografia = models.DateTimeField(default=datetime.now, blank=False)
     usuario = models.ForeignKey(
         to=User,
@@ -26,4 +26,4 @@ class Fotografia(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return str(self.name)
