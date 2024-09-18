@@ -15,14 +15,17 @@
   </head>
 
   <body>
-    <div class="pagina-inicial">
-      {% include 'partials/_header.html' %}
-      <main class="principal">
-        {% include 'partials/_nav.html' %}
-        {% block content %}
-        {% endblock %}
-      </main>
+    <div class="page-container">
+      <div class="pagina-inicial">
+        {% include 'partials/_header.html' %}
+        <main class="principal">
+          {% include 'partials/_nav.html' %}
+          {% block content %}
+
+          {% endblock %}
+        </main>
+      </div>
+      {% include 'partials/_footer.html' %}
     </div>
-    {% include 'partials/_footer.html' %}
   </body>
 </html>
